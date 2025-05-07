@@ -1,5 +1,79 @@
-template-repository (1.0-1) unstable; urgency=medium
+wfview (2.03-2) unstable; urgency=medium
 
-  * Initial release
+  * Add B-D libqt5websockets5-dev. (Closes: #1092119)
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Christoph Berg <myon@debian.org>  Sat, 04 Jan 2025 11:30:55 +0100
+
+wfview (2.03-1) unstable; urgency=medium
+
+  * New upstream version 2.03.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 04 Jan 2025 10:50:38 +0100
+
+wfview (1.64-2) unstable; urgency=medium
+
+  * usbcontroller.cpp: Remove broken qToLittleEndian call that was FTBFS'ing
+    on big endian archs.
+
+ -- Christoph Berg <myon@debian.org>  Sun, 06 Aug 2023 10:45:32 +0200
+
+wfview (1.64-1) unstable; urgency=medium
+
+  * New upstream version 1.64.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 31 Jul 2023 22:59:04 +0200
+
+wfview (1.62-1) experimental; urgency=medium
+
+  * New upstream version 1.62.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 03 Jun 2023 23:48:57 +0200
+
+wfview (1.60-1) unstable; urgency=medium
+
+  * New upstream version 1.60.
+  * B-D on libqt5gamepad5-dev and libhidapi-dev.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 14 Feb 2023 09:05:50 +0000
+
+wfview (1.50-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository-Browse.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Christoph Berg ]
+  * Build against qcustomplot 2.1. (Closes: 1024103)
+
+ -- Christoph Berg <myon@debian.org>  Wed, 23 Nov 2022 11:42:37 +0100
+
+wfview (1.50-1) unstable; urgency=medium
+
+  * New upstream version 1.50.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 26 Sep 2022 16:30:31 +0200
+
+wfview (1.2e-2) unstable; urgency=medium
+
+  * Build both wfview and wfserver (headless version).
+  * wfserver.pro: Fix SSE flags in i386/x86_64.
+
+ -- Christoph Berg <myon@debian.org>  Fri, 27 May 2022 11:16:49 +0200
+
+wfview (1.2e-1) unstable; urgency=medium
+
+  * New upstream version 1.2e.
+
+ -- Christoph Berg <myon@debian.org>  Thu, 26 May 2022 16:45:45 +0200
+
+wfview (1.2d-1) unstable; urgency=medium
+
+  * New upstream version 1.2d.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 06 Dec 2021 20:13:24 +0100
+
+wfview (1.2b-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Christoph Berg <myon@debian.org>  Mon, 01 Nov 2021 16:45:10 +0100

@@ -1,0 +1,23 @@
+qToLittleEndian needs a bit width specifier like <quint32> on big endian architectures.
+Since it's unclear what it should be, remove it altogether for now.
+
+--- a/usbcontroller.cpp
++++ b/usbcontroller.cpp
+@@ -887,7 +887,7 @@ void usbController::sendRequest(USBDEVIC
+             data[1] = (qint8)0xb1;
+             data[3] = val + 1;
+             data[5] = text.length() * 2;
+-            data2 = qToLittleEndian(QByteArray::fromRawData(reinterpret_cast<const char*>(text.constData()), text.size() * 2));
++            data2 = QByteArray::fromRawData(reinterpret_cast<const char*>(text.constData()), text.size() * 2);
+             data.replace(16, data2.size(), data2);
+             break;
+         case usbFeatureType::featureBrightness:
+@@ -930,7 +930,7 @@ void usbController::sendRequest(USBDEVIC
+             for (int i = 0; i < text.length(); i = i + 8)
+             {
+                 data[2] = (i == 0) ? 0x05 : 0x06;
+-                data2 = qToLittleEndian(QByteArray::fromRawData(reinterpret_cast<const char*>(text.mid(i, 8).constData()), text.mid(i, 8).size() * 2));
++                data2 = QByteArray::fromRawData(reinterpret_cast<const char*>(text.mid(i, 8).constData()), text.mid(i, 8).size() * 2);
+                 data.replace(16, data2.size(), data2);
+                 data[5] = text.mid(i, 8).length() * 2;
+                 data[6] = (i > 0 && text.mid(i).size() > 8) ? 0x01 : 0x00;
