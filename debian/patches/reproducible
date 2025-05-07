@@ -1,0 +1,54 @@
+Remove unreproducible build info
+
+--- a/aboutbox.cpp
++++ b/aboutbox.cpp
+@@ -33,9 +33,9 @@ aboutbox::aboutbox(QWidget *parent) :
+ 
+     QString docs = QString("<br/><br/>Be sure to check the <a href=\"https://wfview.org/wfview-user-manual/\"  style=\"color: cyan;\">User Manual</a> and <a href=\"https://forum.wfview.org/\"  style=\"color: cyan;\">the Forum</a> if you have any questions.");
+     QString support = QString("<br/><br/>For support, please visit <a href=\"https://forum.wfview.org/\">the official wfview support forum</a>.");
+-    QString gitcodelink = QString("<a href=\"https://gitlab.com/eliggett/wfview/-/tree/%1\"  style=\"color: cyan;\">").arg(GITSHORT);
++    //QString gitcodelink = QString("<a href=\"https://gitlab.com/eliggett/wfview/-/tree/%1\"  style=\"color: cyan;\">").arg(GITSHORT);
+ 
+-    QString buildInfo = QString("<br/><br/>Build " + gitcodelink + QString(GITSHORT) + "</a> on " + QString(__DATE__) + " at " + __TIME__ + " by " + UNAME + "@" + HOST);
++    //QString buildInfo = QString("<br/><br/>Build " + gitcodelink + QString(GITSHORT) + "</a> on " + QString(__DATE__) + " at " + __TIME__ + " by " + UNAME + "@" + HOST);
+     QString end = QString("</body></html>");
+ 
+     // Short credit strings:
+@@ -128,7 +128,7 @@ QString freqCtlCredit = QString("/*"
+ 
+     aboutText.append(end);
+     ui->midTextBox->setText(aboutText);
+-    ui->bottomText->setText(buildInfo);
++    ui->bottomText->setText("");
+     ui->midTextBox->setFocus();
+ }
+ 
+--- a/main.cpp
++++ b/main.cpp
+@@ -122,13 +122,13 @@ int main(int argc, char *argv[])
+ #ifdef BUILD_WFSERVER
+     const QString version = QString("wfserver version: %1 (Git:%2 on %3 at %4 by %5@%6)\nOperating System: %7 (%8)\nBuild Qt Version %9. Current Qt Version: %10\n")
+         .arg(QString(WFVIEW_VERSION))
+-        .arg(GITSHORT).arg(__DATE__).arg(__TIME__).arg(UNAME).arg(HOST)
++        .arg("-").arg("-").arg("-").arg("-").arg("-")
+         .arg(QSysInfo::prettyProductName()).arg(QSysInfo::buildCpuArchitecture())
+         .arg(QT_VERSION_STR).arg(qVersion());
+ #else
+     const QString version = QString("wfview version: %1 (Git:%2 on %3 at %4 by %5@%6)\nOperating System: %7 (%8)\nBuild Qt Version %9. Current Qt Version: %10\n")
+         .arg(QString(WFVIEW_VERSION))
+-        .arg(GITSHORT).arg(__DATE__).arg(__TIME__).arg(UNAME).arg(HOST)
++        .arg("-").arg("-").arg("-").arg("-").arg("-")
+         .arg(QSysInfo::prettyProductName()).arg(QSysInfo::buildCpuArchitecture())
+         .arg(QT_VERSION_STR).arg(qVersion());
+ 
+--- a/wfmain.cpp
++++ b/wfmain.cpp
+@@ -44,7 +44,7 @@ wfmain::wfmain(const QString settingsFil
+     initLogging();
+     logWindow->setInitialDebugState(debugMode);
+     qInfo(logSystem()).noquote() << QString("wfview version: %1 (Git:%2 on %3 at %4 by %5@%6)")
+-                          .arg(QString(WFVIEW_VERSION),GITSHORT,__DATE__,__TIME__,UNAME,HOST);
++                          .arg(QString(WFVIEW_VERSION),"-","-","-","-","-");
+ 
+     qInfo(logSystem()).noquote() << QString("Operating System: %0 (%1)").arg(QSysInfo::prettyProductName(),QSysInfo::buildCpuArchitecture());
+     qInfo(logSystem()).noquote() << "Looking for External Dependencies:";

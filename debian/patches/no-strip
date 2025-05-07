@@ -1,0 +1,16 @@
+--- a/wfview.pro
++++ b/wfview.pro
+@@ -33,11 +33,11 @@ CONFIG(debug, release|debug) {
+     win32:DESTDIR = wfview-debug
+ } else {
+     # For Release builds only:
+-    linux:QMAKE_CXXFLAGS += -s
++    linux:QMAKE_CXXFLAGS += -O2 -g
+     linux:QMAKE_CXXFLAGS += -fvisibility=hidden
+     linux:QMAKE_CXXFLAGS += -fvisibility-inlines-hidden
+     linux:QMAKE_CXXFLAGS += -faligned-new
+-    linux:QMAKE_LFLAGS += -O2 -s
++    linux:QMAKE_LFLAGS += -O2 -g
+     win32:DESTDIR = wfview-release
+ }
+ 
