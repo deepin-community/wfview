@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 
+export PATH=/usr/lib/qt5/bin/:$(shell printenv PATH)
+export QT_SELECT=qt5
+
 %:
 	dh $@
 
