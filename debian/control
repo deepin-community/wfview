@@ -20,6 +20,7 @@ Build-Depends:
  portaudio19-dev,
  qtbase5-dev,
  qtmultimedia5-dev,
+ qt5-default,
 Standards-Version: 4.6.1
 Rules-Requires-Root: no
 Homepage: https://wfview.org/
