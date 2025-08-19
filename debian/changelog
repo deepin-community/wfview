@@ -1,3 +1,9 @@
+wfview (2.03-2.1deepin2) unstable; urgency=medium
+
+  * fix build 'qmake: could not find a Qt installation of '' '.
+
+ -- lichenggang <lichenggang@deepin.org>  Tue, 19 Aug 2025 14:47:02 +0800
+
 wfview (2.03-2.1deepin1) unstable; urgency=medium
 
   * fix build
